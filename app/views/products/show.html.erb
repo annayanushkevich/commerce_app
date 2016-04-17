@@ -1,0 +1,8 @@
+<ul>
+<li><%=@product.name %></li>
+<li><%=@product.description %></li>
+</ul>
+
+
+<%= link_to "edit", "/products/#{@product.id}", method: :edit%>
+<%= link_to "delete", "/products/#{@product.id}", method: :delete%>

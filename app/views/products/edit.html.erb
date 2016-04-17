@@ -1,0 +1,18 @@
+<h3> edit your kitty </h3>
+<%= form_tag "/products/#{@product.id}", method: :patch do %>
+
+<div>
+<%=label_tag :name %>
+<%=text_field_tag :name %>
+ </div>
+ <div>
+<%=label_tag :price %>
+<%=text_field_tag :price %>
+</div>
+ <div>
+<%=label_tag :description %>
+<%=text_field_tag :description%>
+ </div>
+ <%= submit_tag "change!" %>
+
+<%end%>

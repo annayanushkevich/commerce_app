@@ -1,0 +1,14 @@
+<table class"table">
+<tr>
+ <th>name</th>
+ <th>price</th>
+ <th>description</th>
+</tr>
+<% @products.each do |kitty| %>
+<tr>
+<td><a href='/products/<%= kitty.id %>'><%= kitty.name %></a></td>
+<td><%= kitty.price %></td>
+<td><%= kitty.description %></td>
+</tr>
+<%end%>
+</table>
