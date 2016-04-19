@@ -1,4 +1,28 @@
-<table class"table">
+
+<h1> Kittens </h1>
+
+<div class= "row">
+<% @products.each do |kitty| %>
+  <div class="col-md-3">
+    <div class= "thumbnail">
+      <a href="/products/<%= kitty.id %>">
+      <p><%= kitty.name %> </p>
+      <p><%= kitty.price %> </p>
+      <p><%= kitty.description%> </p>
+      <div>
+         <img src="<%= kitty.image %>" width= "150" hight="150">
+        </div>
+      </a>
+    </div>
+</div>
+<%end%>
+</div>
+
+
+
+
+
+<!-- <table class"table">
 <tr>
  <th>name</th>
  <th>price</th>
@@ -12,3 +36,4 @@
 </tr>
 <%end%>
 </table>
+ -->
