@@ -6,15 +6,39 @@ class ProductsController < ApplicationController
   # end
 
   def index
-    @products = Product.all
+   sort_choice = params[:sort]
+   p sort_choice
+   if sort_choice == "hightolowprice"
+    @products = Product.order(price: :desc)
+  elsif sort_choice == "lowtohighprice"
+    @products = Product.order(price: :asc)
+  elsif 
+    sort_choice == "sale_items"
+    @products= Product.where("price < ?", 60)
+  else 
+      @products = Product.all
+  end
+  render :index #fills in default
+end
+
+
+def new
+end
+
+  def search
+    search_term = params[:search]
+    @products =Product.where("name LIKE ? OR description LIKE?", "%#{search_term}%", "%#{search_term}%")
+    render :index
   end
 
-  def new
-  end
 
-  def show
+def show
+  if params[:id] == "random"
+   @product = Product.all.sample
+  else
     @product = Product.find_by(id: params[:id])
   end
+end
 
   def create
     new_product = Product.new(name:params[:name], price:params[:price],description:params[:description], image:params[:image])
@@ -45,5 +69,5 @@ class ProductsController < ApplicationController
     flash[:danger] = "your kitten has been destroyed"
     redirect_to "/products"
   end
-
 end
+

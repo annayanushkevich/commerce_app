@@ -1,6 +1,17 @@
 
 <h1> Kittens </h1>
 
+<a href="/products?sort=lowtohighprice">Sort By Price : low to high </a>
+<a href="/products?sort=hightolowprice">Sort By Price : high to low </a>
+<a href="/products/random"> ...help me pick... </a>
+<a href="/products?sort=name">Sort By Name</a>
+<%= form_tag "/search", method: :post do %>
+<%= label_tag :search %>
+<%= text_field_tag :search %>
+<%= submit_tag "search" %>
+<%end%>
+
+
 <div class= "row">
 <% @products.each do |kitty| %>
   <div class="col-md-3">
