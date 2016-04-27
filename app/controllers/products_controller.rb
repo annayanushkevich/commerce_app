@@ -41,7 +41,7 @@ def show
 end
 
   def create
-    new_product = Product.new(name:params[:name], price:params[:price],description:params[:description], image:params[:image])
+    new_product = Product.new(name:params[:name], price:params[:price],description:params[:description], supplier_id:params[:supplier][:supplier_id])
     new_product.save
     flash[:success] = "new kitten has been added >^_^<"
     redirect_to "/products/#{new_product.id}"
@@ -57,7 +57,6 @@ end
     @product.name =params[:name]
     @product.price =params[:price]
     @product.description =params[:description]
-    @product.image =params[:image]
     @product.save
     flash[:success] = "kitten information updated"
     redirect_to "/products/#{@product.id}"

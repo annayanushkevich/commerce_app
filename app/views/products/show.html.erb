@@ -4,8 +4,16 @@
 <li><%=@product.sale_item %></li>
 <li><%=@product.sales_tax %></li>
 <li><%=@product.total %></li>
-<img src="<%= @product.image %>">
+<li><%=@product.supplier.name %></li>
 </ul>
+
+<% @product.images.each do |image| %>
+
+
+<img src="<%= image.url %>" width= "150" hight="150">
+
+
+<% end %>
 
 
 <%= link_to "edit", "/products/#{@product.id}", method: :edit%>
