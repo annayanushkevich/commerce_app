@@ -17,7 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'bcrypt'
 gem 'seed_dump'
+gem 'devise'
 gem 'faker',  '~> 1.6', '>= 1.6.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

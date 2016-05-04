@@ -1,6 +1,11 @@
 class Product < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
+  has_many :categorized_products
+  has_many :categories, through: :categorized_products
+  has_many :orders, through: :carted_products
+  has_many :orders
+ 
 
   DISCOUNT_THRESHOLD = 50
   SALES_TAX = 0.09
@@ -13,13 +18,13 @@ class Product < ActiveRecord::Base
 end
 
   def sales_tax
-    @tax = price * SALES_TAX
-    return "tax: #{@tax}"
+    tax = price * SALES_TAX
+    return tax
   end
 
   def total
-    @total = price + sales_tax.to_f
-    return " total: #{@total}"
+    total = price + sales_tax.to_f
+    return total
   end
 end
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Kitty Kart</h2>
+  <p>""</p>            
+  <table class="table table-hover">
+    <thead>
+      <% @order.carted_products.each do |carted_product| %>
+      <tr>
+      <td><%=carted_product.product.name %></td>
+      <td><%=carted_product.quantity %></td>
+      <td><%= link_to "remove product", "/carted_product/#{carted_product.id}" method: :delete %></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% end %>
+    <tr>
+      <td>$</td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to "check out," "orders/#{}", method: :patch%>
+</div>
+</body>
+</html>

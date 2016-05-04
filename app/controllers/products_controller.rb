@@ -15,6 +15,8 @@ class ProductsController < ApplicationController
   elsif 
     sort_choice == "sale_items"
     @products= Product.where("price < ?", 60)
+    elsif params[:category]
+    @products = Category.find_by(name: params[:category]).products
   else 
       @products = Product.all
   end

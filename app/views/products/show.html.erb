@@ -1,11 +1,20 @@
 <ul>
-<li><%=@product.name %></li>
-<li><%=@product.description %></li>
-<li><%=@product.sale_item %></li>
-<li><%=@product.sales_tax %></li>
-<li><%=@product.total %></li>
-<li><%=@product.supplier.name %></li>
+  <li><%=@product.name %></li>
+  <li><%=@product.description %></li>
+  <li><%=@product.sale_item %></li>
+  <li><%=@product.sales_tax %></li>
+  <li><%=@product.total %></li>
+  <li><%=@product.supplier.name %></li>
 </ul>
+
+<%= form_tag "/carted_products", method: :post do %>
+<div>
+  <%= label_tag :quantity %>
+  <%= text_field_tag :quantity %>
+</div>
+<%= hidden_field_tag :product_id, @product.id %>
+<%= submit_tag "Add To Kitty Kart" %>
+<% end %>
 
 <% @product.images.each do |image| %>
 
