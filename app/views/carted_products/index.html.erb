@@ -19,7 +19,7 @@
       <tr>
       <td><%=carted_product.product.name %></td>
       <td><%=carted_product.quantity %></td>
-      <td><%= link_to "remove product", "/carted_product/#{carted_product.id}" method: :delete %></td>
+      <td><%= link_to "remove product", "/carted_product/#{carted_product.id}", method: :delete %></td>
       </tr>
     </thead>
     <tbody>

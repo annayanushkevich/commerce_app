@@ -2,20 +2,20 @@
 <%= form_tag "/products/#{@product.id}", method: :patch do %>
 
 <div>
-<%=label_tag :name %>
-<%=text_field_tag :name %>
+<%=label_tag :name @update.name %>
+<%=text_field_tag :name @update.name %>
  </div>
  <div>
-<%=label_tag :price %>
-<%=text_field_tag :price %>
+<%=label_tag :price @update.price %>
+<%=text_field_tag :price @update.price %>
 </div>
  <div>
-<%=label_tag :description %>
-<%=text_field_tag :description%>
+<%=label_tag :description @update.description %>
+<%=text_field_tag :description @update.description %>
  </div>
  <div>
-<%=label_tag :image %>
-<%=text_field_tag :image%>
+<%=label_tag :image @update.image %>
+<%=text_field_tag :image @update.image%>
  </div>
 
  <%= submit_tag "change!" %>

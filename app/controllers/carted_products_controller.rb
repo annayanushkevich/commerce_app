@@ -9,6 +9,7 @@ class CartedProductsController < ApplicationController
 
     carted_product = CartedProduct.new(product_id: params[:product_id], order_id: order.id, quantity: params[:quantity])
     carted_product.save
+    session[:cart_count] = nil
     redirect_to "/carted_products"
   end
 
@@ -30,19 +31,20 @@ class CartedProductsController < ApplicationController
       total_tax += (carted_product.product.tax * carted_product.quantity)
       total_subtotal += (carted_product.product.price * carted_product.quantity)
 
-    end
-    totl = total_tax + total_subtotal
+    total = total_tax + total_subtotal
 
 
     order.update(completed: true, tax: total_tax, subtotal: total_subtotal, total: total )
+    session[:cart_count] = nil
     redirect_to "/orders/#{order.id}"
   end
 
   def destroy
     CartedProduct.find_by(id: params[:id]).destroy
-
+    session[:cart_count] = nil
     redirect_to "/carted_products"
-
+  end
+end
 
 
 end

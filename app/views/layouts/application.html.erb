@@ -31,6 +31,20 @@
             <li><a href="#">yummy foods</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">toilet stuff</a></li>
+
+            <li><a href="#">Separated link</a></li>
+            <% if current_user && current_user.admin %>
+            <li><%= link_to "Add kitty", "/products/new" %></li>
+            <% end %>
+            <% if current_user %>
+            <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+            <% else %>  
+            <li><%= link_to "Sign In", "/users/sign_in"%></li>
+            <li><%= link_to "Sign Up", "/users/sign_up"%></li>
+            <% end %>
+
+          </ul>
+          </li>
           </ul>
         </li>
       </ul>

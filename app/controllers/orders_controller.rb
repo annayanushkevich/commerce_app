@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
 
   def create
+
+  session[:cart_count] = nil
+  
   product = Product.find_by(id: params[:product_id])
   quantity = params[:quantity]
 
@@ -15,6 +18,8 @@ class OrdersController < ApplicationController
     
     flash[:success]= "sold"
     redirect_to "/orders/#{new_order.id}"
+
+
   end
 
   def show
